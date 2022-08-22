@@ -1,13 +1,31 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for(element of array){
+    let elementIndex = array.indexOf(element)
+    for(let i = 0; i < array.length; i++){
+      if(i !== elementIndex){
+        if(element + array[i] === target){
+          return true
+        }
+      }
+    }
+  }
+  return false
 }
 
 /* 
   Write the Big O time complexity of your function here
+  [3, 4, 7, 8, 11, 12] 10
+  mid = 2
+
 */
 
 /* 
-  Add your pseudocode here
+1. .sort.reverse to get array ascending
+2. mid point = floor(length / 2)
+3. does mid point + mid+1 = target (return if does)
+4. if the sum > target we need to look at the lower numbers (mid = mid-1) slice(-mid)
+5. if the sum < target we need to look at higher numbers (mid = mid+1) slice(mid)
+
 */
 
 /*
